@@ -3,10 +3,12 @@ package com.example.demoJPA.demoJPA.services;
 import com.example.demoJPA.demoJPA.entity.Roles;
 import com.example.demoJPA.demoJPA.repository.RoleRepository;
 import com.example.demoJPA.demoJPA.request.InsertRoleRequest;
+import com.example.demoJPA.demoJPA.request.UpdateRoleRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class RoleServices {
@@ -26,6 +28,22 @@ public class RoleServices {
         // Assign the returned object to a variable called insertedRole
         Roles insertedRole = roleRepository.save(role);
 
+        return true;
+    }
+
+    public boolean updateRole(UpdateRoleRequest roleRequest) {
+        // Optional object
+        Optional<Roles> role = roleRepository.findById(roleRequest.getId());
+
+        if ( !role.isPresent() ) {
+            return false;
+        }
+
+        Roles roleEntity = role.get();
+        roleEntity.setCreatedDate(role.get().getCreatedDate());
+        roleEntity.setName(roleRequest.getRoleName());
+
+        roleRepository.save(roleEntity);
         return true;
     }
 }

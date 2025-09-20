@@ -13,11 +13,12 @@ public class Roles {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "role_name", unique = true, nullable = false)
-    private String name;
-
     @Column(name = "created_time")
     private LocalDateTime createdDate;
+
+    @Column(name = "role_name")
+    private String name;
+
 
     @OneToMany(mappedBy = "role")
     private List<Users> usersList;

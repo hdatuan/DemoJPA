@@ -1,10 +1,17 @@
 package com.example.demoJPA.demoJPA.request;
 
+public class UpdateRoleRequest {
+    private int id;
 
-// DTO - Data Transfer Object
-public class InsertRoleRequest {
-    // @JsonProperty("role-name")
     private String roleName;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getRoleName() {
         return roleName;

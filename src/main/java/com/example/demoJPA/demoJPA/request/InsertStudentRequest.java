@@ -1,5 +1,6 @@
 package com.example.demoJPA.demoJPA.request;
 
+// DTO - Data Transfer Object
 public class InsertStudentRequest {
 
     private String studentName;
