@@ -19,7 +19,7 @@ public class RoleController {
     @PostMapping
     public ResponseEntity<?> insertRole(@RequestBody InsertRoleRequest roleRequest) {
         roleServices.insertRole(roleRequest);
-        return ResponseEntity.ok("Insert");
+        return ResponseEntity.ok("Insert role successful");
     }
 
 }

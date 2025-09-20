@@ -15,13 +15,16 @@ public class RoleServices {
     private RoleRepository roleRepository;
 
     public boolean insertRole(InsertRoleRequest roleRequest) {
-
+        // Create a new Role object
         Roles role = new Roles();
 
+        // Setting properties for the new Role
         role.setName(roleRequest.getRoleName());
         role.setCreatedDate(LocalDateTime.now());
 
-        Roles roleInserted = roleRepository.save(role);
+        // save the Role using roleRepository.save
+        // Assign the returned object to a variable called insertedRole
+        Roles insertedRole = roleRepository.save(role);
 
         return true;
     }
