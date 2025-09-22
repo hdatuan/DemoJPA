@@ -1,6 +1,7 @@
 package com.example.demoJPA.demoJPA.controller;
 
 import com.example.demoJPA.demoJPA.request.SignInRequest;
+import com.example.demoJPA.demoJPA.response.BaseResponse;
 import com.example.demoJPA.demoJPA.services.AuthenticationServices;
 import com.example.demoJPA.demoJPA.services.implement.AuthenticationServicesImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,10 @@ public class AuthenticationController {
     public ResponseEntity<?> signIn(@RequestBody SignInRequest signInRequest) {
         AuthenticationServices authenticationServices1 = new AuthenticationServicesImp();
         boolean isSuccess = authenticationServices.authenticate(signInRequest.getEmail(), signInRequest.getPassword());
-        return ResponseEntity.ok("Sign in");
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.setCode(isSuccess ? 0 : 1 );
+        baseResponse.setData(isSuccess);
+        return ResponseEntity.ok(baseResponse);
     }
 
 
