@@ -6,6 +6,8 @@ import com.example.demoJPA.demoJPA.services.AuthenticationServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AuthenticationServicesImp implements AuthenticationServices {
 
@@ -14,9 +16,9 @@ public class AuthenticationServicesImp implements AuthenticationServices {
 
     @Override
     public boolean authenticate(String email, String password) {
-        Users users = userRepository.findByEmailAndPassword(email, password);
+        Optional<Users> users = userRepository.findByEmailAndPassword(email, password);
 
-        return users != null;
+        return users.isPresent();
     }
 
 

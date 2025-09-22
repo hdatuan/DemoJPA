@@ -24,4 +24,6 @@ public class AuthenticationController {
         boolean isSuccess = authenticationServices.authenticate(signInRequest.getEmail(), signInRequest.getPassword());
         return ResponseEntity.ok("Sign in");
     }
+
+
 }
