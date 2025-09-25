@@ -1,5 +1,6 @@
 package com.example.demoJPA.demoJPA.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity(name = "users")     // Thông qua Entity để cho ORM biết đây là class đại diện trong database
